@@ -1,0 +1,20 @@
+services:
+  floci:
+    image: floci/floci:latest
+    ports:
+      - "4566:4566"
+    volumes:
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock
+      - ./data:/app/data
+    environment:
+      FLOCI_STORAGE_MODE: hybrid
+      FLOCI_HOSTNAME: floci
+      FLOCI_BASE_URL: http://floci:4566
+      FLOCI_SERVICES_UI_IMAGE: ghcr.io/ofsazib/floci-dash:latest
+      FLOCI_SERVICES_UI_CONTAINER_NAME: floci-dash
+      # Floci Dash reads its endpoint from FLOCI_URL, not AWS_ENDPOINT_URL
+      FLOCI_SERVICES_UI_ENDPOINT_ENV: FLOCI_URL
+      # and answers /api/healthz rather than /api/health
+      FLOCI_SERVICES_UI_STATUS_PATH: /api/healthz
+    env_file:
+      - .env
