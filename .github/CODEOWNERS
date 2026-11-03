@@ -1,0 +1,20 @@
+/.github/CODEOWNERS         @benhofirek
+
+# Default ownership
+*                           @benhofirek
+
+# Repository security and automation
+/.github/                   @benhofirek
+
+# Infrastructure as code
+/infra/                     @benhofirek
+/terraform/                 @benhofirek
+
+# Nix configuration
+/flake.nix                  @benhofirek
+/flake.lock                 @benhofirek
+/nix/                       @benhofirek
+
+# Container configuration
+/Dockerfile                 @benhofirek
+/docker-compose.yml         @benhofirek
