@@ -17,6 +17,8 @@
         packages = with pkgs; [
           opentofu
           awscli2
+          tflint
+          trivy
         ];
       };
     };
